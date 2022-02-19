@@ -1,1 +1,1 @@
-# Equipo_2_T6
+Creating accurate delays with the PIT module of the K64.
