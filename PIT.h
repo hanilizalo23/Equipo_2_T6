@@ -1,8 +1,9 @@
 /*
  * PIT.h
  *
- *  Created on: Jan 29, 2015
- *      Author: Luis Pizano
+ *  Created on: Feb 19, 2022
+ *  \author PhD. José Luis Pizano Escalante
+	\completed by Mauricio Peralta Osorio
  */
 
 #ifndef PIT_H_
@@ -21,6 +22,15 @@ typedef enum {PIT_0,PIT_1,PIT_2,PIT_3} PIT_timer_t;
 
 /********************************************************************************************/
 /********************************************************************************************/
+
+/********************************************************************************************/
+/*!
+ 	 \brief	 This function contains the ISR for the PIT module
+ 	 \param[in]  void.
+ 	 \return void
+ */
+void PIT0_IRQHandler(void);
+
 /********************************************************************************************/
 /*!
  	 \brief	 This function configure the PIT to generate a delay base on the system clock.
@@ -29,16 +39,15 @@ typedef enum {PIT_0,PIT_1,PIT_2,PIT_3} PIT_timer_t;
  	 for the propose of the homework
 
  	 \param[in]  pit_timer channel to be used.
-	 \param[in]  system_clock system clock use in the K64 (default = 21e6).
+	 \param[in]  system_clock system clock use in the K64 (defult = 21e6).
 	 \param[in]  delay the amount of time the delay the microcontroller
  	 \return void
  */
-void PIT_delay(PIT_timer_t pit_timer, My_float_pit_t system_clock , My_float_pit_t delay);
+void PIT_delay(PIT_timer_t pit_timer, My_float_pit_t system_clock, My_float_pit_t delay);
 
 /********************************************************************************************/
 /*!
  	 \brief	 This function enable the clock signal of the pit
-
  	 \param[in]  void.
  	 \return void
  */
@@ -75,13 +84,12 @@ void PIT_enable(void);
 
 /********************************************************************************************/
 /*!
- 	 \brief	It enable de interrupt capabilities of the PIT
+ 	 \brief	It enable the interrupt capabilities of the PIT
 
  	 \param[in]  void.
  	 \return uint8_t flag status
  */
 void PIT_enable_interrupt(PIT_timer_t pit);
-
 
 
 #endif /* PIT_H_ */
