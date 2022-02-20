@@ -3,8 +3,9 @@
 	\brief
 		This is a starter file to implement a function able to produce an accurate delay
 		using the PIT module.
-	\author J. Luis Pizano Escalante, luispizano@iteso.mx
-	\date	17/09/2018
+	\author PhD. José Luis Pizano Escalante
+	\completed by Nelida Paulina Hernández Moya
+	\date	19/02/2022
  */
 
 #include "MK64F12.h"
@@ -14,8 +15,7 @@
 #include "Bits.h"
 
 #define SYSTEM_CLOCK (21000000U)
-#define DELAY (0.01F)
-
+#define DELAY (0.00001F)
 
 int main(void)
 {
@@ -26,6 +26,7 @@ int main(void)
 	GPIO_pin_control_register(GPIO_D, bit_0, &pin_control_register_bit_d_0);
 	GPIO_data_direction_pin(GPIO_D,GPIO_OUTPUT, bit_0);
 	GPIO_set_pin(GPIO_D, bit_0);
+
 	PIT_clock_gating();
 	PIT_enable();
 
@@ -34,8 +35,8 @@ int main(void)
 
 	PIT_delay(PIT_0, SYSTEM_CLOCK, DELAY);
 
-	for(;;) {
-
+	while(1)
+	{
 		do
 		{
 			pit_inter_status =  PIT_get_interrupt_flag_status();
