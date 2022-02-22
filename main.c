@@ -15,7 +15,7 @@
 #include "Bits.h"
 
 #define SYSTEM_CLOCK (21000000U)
-#define DELAY (0.00001F)
+#define DELAY (0.125F)
 
 int main(void)
 {
