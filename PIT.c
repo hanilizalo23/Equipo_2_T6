@@ -27,19 +27,19 @@ void PIT_delay(PIT_timer_t pit_timer, My_float_pit_t system_clock, My_float_pit_
      switch(pit_timer) /** PIT to choose*/
            {
            case PIT_0:/** PIT 0 is selected*/
-                PIT->CHANNEL[0].LDVAL = ((delay/(1/system_clock))-1);
+                PIT->CHANNEL[0].LDVAL = ((delay/(1/(system_clock/2)))-1);
                 PIT_enable_interrupt(PIT_0);
                 break;
            case PIT_1:/** PIT 1 is selected*/
-                PIT->CHANNEL[1].LDVAL = ((delay/(1/system_clock))-1);
+        	   	PIT->CHANNEL[1].LDVAL = ((delay/(1/(system_clock/2)))-1);
                 PIT_enable_interrupt(PIT_1);
                 break;
            case PIT_2:/** PIT 2 is selected*/
-                PIT->CHANNEL[2].LDVAL = ((delay/(1/system_clock))-1);
+        	   	PIT->CHANNEL[2].LDVAL = ((delay/(1/(system_clock/2)))-1);
                 PIT_enable_interrupt(PIT_2);
                 break;
            case PIT_3:/** PIT 3 is selected*/
-                PIT->CHANNEL[3].LDVAL = ((delay/(1/system_clock))-1);
+        	    PIT->CHANNEL[3].LDVAL = ((delay/(1/(system_clock/2)))-1);
                 PIT_enable_interrupt(PIT_3);
                 break;
            default:/**If doesn't exist the option do nothing*/
